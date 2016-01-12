@@ -1,4 +1,3 @@
-﻿# PHP
+﻿﻿# PHP
 <hr>
-<a href="//github.com/itmo-it-group-305/andrey.elagin-JS/tree/master/homework/21.12 Template + jQuery">Домашняя работа от 21.12 (jQuery + Шаблонизатор)</a><br>
-<hr>
+<a href="//https://github.com/itmo-it-group-305/andrey.elagin-php/tree/master/homework/1.12.01 (Високосный год, Светофор, Треугольник))</a><br>
