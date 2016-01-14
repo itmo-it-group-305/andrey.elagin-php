@@ -1,10 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 12.01.16
- * Time: 23:54
- */
+$someArr = [1, 2, 3, 8, 14, 89, 45];
+print_r($someArr);
+for ($i = 0; $i < count($someArr) - 1; $i++) {
+    $someArr[$i] = $someArr[count($someArr) - $i];
+}
+print_r($someArr);
 
 $a = [2, 7];
 $b = [6, 1];
