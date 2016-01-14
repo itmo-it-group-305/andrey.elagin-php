@@ -6,6 +6,5 @@
  * Time: 23:14
  */
 
-$time = date(i) % 8;
-$color = ($time > 3 && $time < 6) ? "red" : "green";
+$color = (date('i') % 5 < 3) ? "green" : "red";
 echo $color;
