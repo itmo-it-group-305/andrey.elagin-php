@@ -1,9 +1,15 @@
 <?php
-$someArr = [1, 2, 3, 8, 14, 89, 45];
 
+$someArr = [4, 8, 15, 16, 23, 42, 42];
+$length = (int)((count($someArr)) / 2);
+$a = 0;
+$b = 0;
 
-for ($i = 0; $i < count($someArr); $i++) {
-
+for ($i = 0; $i <= $length - 1; $i++) {
+   $a = $someArr[$i];
+   $b = $someArr[count($someArr) - 1 - $i];
+   $someArr[$i] = $b;
+   $someArr[count($someArr) - 1 - $i] = $a;
 }
 
 print_r($someArr);
