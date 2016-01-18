@@ -23,7 +23,7 @@ $content = $friends['response'];
 <body>
 <?php foreach ($content as $friend): ?>
     <section>
-        <h2><?= $friend['first_name'] . ' ' . $friend['last_name']?></h2>
+        <h2><?= $friend['first_name'] . ' ' . $friend['last_name'] ?></h2>
         <p class="preview"><img src="<?= $friend['photo_200_orig'] ?>" alt=""></p>
 <!--        <p class="date">Дата рождения: --><?//= $friend['bdate'] ?><!--</p>-->
         <p class="relation">Семейное положение: <?= $friend['relation'] ?></p>
