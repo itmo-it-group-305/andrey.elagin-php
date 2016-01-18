@@ -52,7 +52,7 @@ $data = [
 <body>
 <?php foreach ($data as $post): ?>
     <section>
-        <h2><?= $data[0]['title']?></h2>
+        <h2><?= $data[0]['title']?></h2> // @fixme: странная адресация, наверно просто не заметил =)
         <p class="preview"><img src="<?= $post['preview'] ?>" alt=""></p>
         <p class="date"><?= $post['date'] ?></p>
         <p class="description"><?= $post['description'] ?></p>
