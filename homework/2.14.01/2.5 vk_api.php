@@ -25,9 +25,9 @@ $content = $friends['response'];
     <section>
         <h2><?= $friend['first_name'] . ' ' . $friend['last_name'] ?></h2>
         <p class="preview"><img src="<?= $friend['photo_200_orig'] ?>" alt=""></p>
-<!--        <p class="date">Дата рождения: --><?//= $friend['bdate'] ?><!--</p>-->
+        <p class="date">Дата рождения: <?= $friend['bdate'] ?></p>
         <p class="relation">Семейное положение: <?= $friend['relation'] ?></p>
-<!--        <p class="last-online">Последний раз в сети: --><?//= $friend['last_seen'] ?><!--</p>-->
+        <p class="last-online">Последний раз в сети: <?= $friend['last_seen'] ?></p>
     </section>
 <?php endforeach; ?>
 </body>
