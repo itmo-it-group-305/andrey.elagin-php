@@ -4,7 +4,6 @@ $length = (int)((count($someArr)) / 2);
 
 for ($i = 0; $i <= $length - 1; $i++) {
    $someArr[$i] = $someArr[$i] + $someArr[count($someArr) - 1 - $i];
-   echo $someArr[$i] . "\n";
    $someArr[count($someArr) - 1 - $i] = $someArr[$i] - $someArr[count($someArr) - 1 - $i];
    $someArr[$i] = $someArr[$i] - $someArr[count($someArr) - 1 - $i];
 }
