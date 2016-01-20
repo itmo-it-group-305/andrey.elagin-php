@@ -6,6 +6,7 @@
  * Time: 18:55
  */
 
+require_once __DIR__ . '/libs/storage.php';
 require_once __DIR__ . '/app/models/post.php';
 
 $data = isset($_POST['post']) ? $_POST['post'] : [];

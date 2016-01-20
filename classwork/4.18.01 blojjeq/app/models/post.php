@@ -6,48 +6,43 @@
  * Time: 18:56
  */
 
+const ENTITY_POST = 'post';
 
 function getAllPosts()
 {
-    return [
-        [
-            'id' => 1,
-            'title' => 'Post #1',
-            'content' => 'First post',
-            'created' => mktime(),
-            'updated' => mktime(),
-        ],
-            [
-            'id' => 2,
-            'title' => 'Post #2',
-            'content' => 'Second post',
-            'created' => mktime(),
-            'updated' => mktime(),
-        ],
-        [
-            'id' => 3,
-            'title' => 'Post #3',
-            'content' => 'Third post',
-            'created' => mktime(),
-            'updated' => mktime(),
-        ],
-    ];
+    return storageGetAll(ENTITY_POST);
 }
 
 
 function getPostById($id)
 {
-    $items = getAllPosts();
-    foreach ($items as $storedItem) {
-        if ($storedItem['id'] == $id) {
-            return $storedItem;
-        }
-    }
-    return null;
+    return storageGetItemByID(ENTITY_POST, $id);
 }
 
 
 function savePost($data, &$errors = null)
 {
+    $id = isset($data['id']) ? $data['id'] : null;
+    $post = getPostById($id) ?: [];
 
+    if ($id && !$post) {
+        return false;
+    }
+
+    $post = array_merge($post, $data); //объединили данные. данные в хранилище заменены новыми
+
+    $post['updated'] = mktime();
+
+    if (!$id) {
+        $post['created'] = mktime();
+    }
+
+    //fixme: нужно возвращать другое значение, передать post по ссылке
+    $post = storageSaveItem(ENTITY_POST, $post);
+
+    if (!$post) {
+        $errors['db'] = 'Не удалось записать данные в базу';
+    }
+
+    return $post;
 }
