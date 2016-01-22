@@ -60,23 +60,35 @@ function storageGetItemByID($entity, $id)
 }
 
 
-function storageSaveItem($entity, $item)
+function storageSaveItem($entity, &$item)
 {
-    $id = isset($item['id']) ? $item['id'] : null;
-    $items = storageGetAll($entity);
+    $id = isset($item['id']) ? $item['id'] : 0;
+    $storedItem = storageGetItemByID($entity, (int) $id) ?: [];
+
+    if ($id && !$storedItem) {
+        return false;
+    }
+
+    $item = array_merge($storedItem, $item);
 
     if (!$id) {
-        $length = count($items);
+        $items = storageGetAll($entity);
 
-        $id = $length ? $items[$length - 1]['id'] + 1 : 1;
+        foreach ($items as $storedItem) {
+            if ($storedItem['id'] > $id) {
+                $id = $storedItem['id'];
+            }
+        }
 
-        $item['id'] = $id;
+        $id += 1;
     }
+
+    $item['id'] = (int) $id;
 
     $filename = createFilenameItem($entity, $id);
     $status = file_put_contents($filename, json_encode($item), LOCK_EX);
 
-    return $status ? $item : false;
+    return (bool) $status;
 }
 
 

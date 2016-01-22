@@ -23,13 +23,11 @@ function getPostById($id)
 function savePost($data, &$errors = null)
 {
     $id = isset($data['id']) ? $data['id'] : null;
-    $post = getPostById($id) ?: [];
+    $post = $data; // => результат после очистки и валидации
 
-    if ($id && !$post) {
-        return false;
+    if ($errors) {
+        return $post;
     }
-
-    $post = array_merge($post, $data); //объединили данные. данные в хранилище заменены новыми
 
     $post['updated'] = mktime();
 
@@ -37,10 +35,9 @@ function savePost($data, &$errors = null)
         $post['created'] = mktime();
     }
 
-    //fixme: нужно возвращать другое значение, передать post по ссылке
-    $post = storageSaveItem(ENTITY_POST, $post);
+    $status = storageSaveItem(ENTITY_POST, $post);
 
-    if (!$post) {
+    if (!$status) {
         $errors['db'] = 'Не удалось записать данные в базу';
     }
 
