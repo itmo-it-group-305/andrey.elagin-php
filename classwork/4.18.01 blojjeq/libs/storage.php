@@ -5,12 +5,17 @@
  * Date: 20.01.16
  * Time: 18:49
  */
-
-const DB_DIR = 'db';
+//добавил два директории для юзернэймов и постов
+const DB_DIR_POST = 'db/posts';
+const DB_DIR_USER = 'db/users';
 
 function createFilenameItem($entity, $id)
 {
-    return DB_DIR . DIRECTORY_SEPARATOR . sprintf(getFileNamePattern($entity), $id);
+    if ($entity == 'post') {
+        return DB_DIR_POST . DIRECTORY_SEPARATOR . sprintf(getFileNamePattern($entity), $id);
+    } else {
+        return DB_DIR_USER . DIRECTORY_SEPARATOR . sprintf(getFileNamePattern($entity), $id);
+    }
 }
 
 
@@ -24,8 +29,7 @@ function getFileNamePattern($entity)
 function storageGetAll($entity)
 {
     $items = [];
-
-    $dir = @opendir(DB_DIR);
+    $dir = $entity == 'user' ? @opendir(DB_DIR_USER) : @opendir(DB_DIR_POST);
 
     if (!$dir) {
         return $items;
@@ -33,7 +37,6 @@ function storageGetAll($entity)
 
     do {
         $filename = readdir($dir);
-
         list($id) = sscanf($filename, getFileNamePattern($entity));
 
         if ($id) {
@@ -43,7 +46,6 @@ function storageGetAll($entity)
     } while ($filename);
 
     closedir($dir);
-
     return $items;
 }
 
@@ -55,8 +57,8 @@ function storageGetItemByID($entity, $id)
     if (!is_readable($fileName)) {
         return null;
     }
-
-    return json_decode(file_get_contents($fileName), true);
+    $some = json_decode(file_get_contents($fileName), true);
+    return $some;
 }
 
 
@@ -87,7 +89,6 @@ function storageSaveItem($entity, &$item)
 
     $filename = createFilenameItem($entity, $id);
     $status = file_put_contents($filename, json_encode($item), LOCK_EX);
-
     return (bool) $status;
 }
 

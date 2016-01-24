@@ -11,9 +11,9 @@ require_once __DIR__ . '/libs/storage.php';
 
 $posts = getAllPosts();
 
-var_dump(
-    storageSaveItem('post', ['title' => 'post#1', 'content' => 'first'])
-)
+//var_dump(
+//    storageSaveItem('post', ['title' => 'post#1', 'content' => 'first'])
+//)
 
 ?>
 
