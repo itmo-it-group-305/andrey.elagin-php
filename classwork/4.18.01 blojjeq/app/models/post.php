@@ -20,7 +20,7 @@ function getPostById($id)
 }
 
 
-function savePost($data, &$errors = null)
+function savePost(array $data, array &$errors = null)
 {
     $id = isset($data['id']) ? $data['id'] : null;
     $post = $data; // => результат после очистки и валидации

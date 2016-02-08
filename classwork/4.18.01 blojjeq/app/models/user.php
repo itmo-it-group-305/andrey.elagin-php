@@ -20,7 +20,7 @@ function getUserById($id)
 }
 
 
-function saveUser($data, &$errors = null)
+function saveUser(array $data, array &$errors = null)
 {
     $id = isset($data['id']) ? $data['id'] : null;
     $user = $data;

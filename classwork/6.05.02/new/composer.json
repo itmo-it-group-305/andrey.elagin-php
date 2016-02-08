@@ -1,0 +1,16 @@
+{
+    "name": "daddyingrave/new",
+    "description": "some satan grace",
+    "authors": [
+        {
+            "name": "Andrey Elagin",
+            "email": "daddyingrave@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+          "\\Daddyingrave\\new\\": "./src"
+      }
+    },
+    "require": {}
+}

@@ -6,9 +6,7 @@
  * Time: 18:55
  */
 
-require_once __DIR__ . '/libs/storage.php';
-require_once __DIR__ . '/libs/view.php';
-require_once __DIR__ . '/app/models/post.php';
+require_once __DIR__ . '/app/init.php';
 
 $data = isset($_POST['post']) ? $_POST['post'] : [];
 $post = [];
@@ -30,42 +28,15 @@ if (isset($id)) {
 }
 
 if ($data) {
+    $msg = 'Запись успешно ' . isset($post['id']) ? 'изменена' : 'добавлена';
     $post = savePost($data, $errors);
 
     if (!$errors) {
+        addFlashMessage($msg);
         //Запись успешно сохарнена
         header('location: edit.php?id=' . $post['id']);
         exit;
     }
 }
 
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blojjeq</title>
-</head>
-<body>
-    <form method="post">
-        <div>
-            <div class="error"><?= e($errors, 'title') ?></div>
-            <label for="post-title">Title</label>
-            <input id="post-title" name="post[title]" type="text" value="<?= e($post, 'title') ?>">
-        </div>
-        <div>
-            <div class="error"><?= e($errors, 'content') ?></div>
-            <label for="post-content">Content</label>
-            <textarea name="post[content]" id="post-content"><?= e($post, 'content') ?></textarea>
-        </div>
-        <?php  if (isset($post['id'])): ?>
-        <div>
-            <input type="hidden" name="post[id]" value="<?= e($post, 'id') ?>">
-        </div>
-        <?php endif; ?>
-        <div>
-            <input type="submit">
-        </div>
-    </form>
-</body>
-</html>
+require_once __DIR__ . 'app/views/edit.php';

@@ -49,6 +49,10 @@ function storageGetAll($entity)
     return $items;
 }
 
+function storageGetItemBy($entity, $attribute, $value)
+{
+    //todo доделать
+}
 
 function storageGetItemByID($entity, $id)
 {
@@ -62,7 +66,7 @@ function storageGetItemByID($entity, $id)
 }
 
 
-function storageSaveItem($entity, &$item)
+function storageSaveItem($entity, array &$item)
 {
     $id = isset($item['id']) ? $item['id'] : 0;
     $storedItem = storageGetItemByID($entity, (int) $id) ?: [];

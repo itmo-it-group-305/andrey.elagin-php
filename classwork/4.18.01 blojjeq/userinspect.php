@@ -6,10 +6,7 @@
  * Time: 1:58
  */
 
-require_once __DIR__ . '/libs/storage.php';
-require_once __DIR__ . '/libs/view.php';
-require_once __DIR__ . '/app/models/post.php';
-require_once __DIR__ . '/app/models/user.php';
+require_once __DIR__ . '/app/init.php';
 
 $some = $_POST['some'];
 $id = $some['id'];

@@ -6,10 +6,7 @@
  * Time: 17:53
  */
 
-require_once __DIR__ . '/libs/storage.php';
-require_once __DIR__ . '/libs/view.php';
-require_once __DIR__ . '/app/models/post.php';
-require_once __DIR__ . '/app/models/user.php';
+require_once __DIR__ . '/app/init.php';
 
 $data = isset($_POST['user']) ? $_POST['user'] : [];
 $user = [];
