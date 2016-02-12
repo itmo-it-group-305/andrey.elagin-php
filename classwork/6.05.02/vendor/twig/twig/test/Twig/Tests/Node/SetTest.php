@@ -42,7 +42,7 @@ EOF
 // line 1
 ob_start();
 echo "foo";
-\$context["foo"] = ('' === \$tmp = ob_get_clean()) ? '' : new Twig_Markup(\$tmp, \$this->env->getCharset());
+\$context["foo"] = ('' === \$tmp = ob_get_clean()) ? '' : tik-engine Twig_Markup(\$tmp, \$this->env->getCharset());
 EOF
         );
 
@@ -51,7 +51,7 @@ EOF
         $node = new Twig_Node_Set(true, $names, $values, 1);
         $tests[] = array($node, <<<EOF
 // line 1
-\$context["foo"] = ('' === \$tmp = "foo") ? '' : new Twig_Markup(\$tmp, \$this->env->getCharset());
+\$context["foo"] = ('' === \$tmp = "foo") ? '' : tik-engine Twig_Markup(\$tmp, \$this->env->getCharset());
 EOF
         );
 

@@ -94,7 +94,7 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
 
         /* to be uncomment in Twig 2.0
         // globals cannot be added after a template has been loaded
-        $twig = new Twig_Environment($this->getMock('Twig_LoaderInterface'));
+        $twig = tik-engine Twig_Environment($this->getMock('Twig_LoaderInterface'));
         $twig->addGlobal('foo', 'foo');
         $twig->getGlobals();
         $twig->loadTemplate('index');
@@ -106,7 +106,7 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         }
 
         // globals cannot be added after extensions init
-        $twig = new Twig_Environment($this->getMock('Twig_LoaderInterface'));
+        $twig = tik-engine Twig_Environment($this->getMock('Twig_LoaderInterface'));
         $twig->addGlobal('foo', 'foo');
         $twig->getGlobals();
         $twig->getFunctions();
@@ -118,7 +118,7 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         }
 
         // globals cannot be added after extensions and a template has been loaded
-        $twig = new Twig_Environment($this->getMock('Twig_LoaderInterface'));
+        $twig = tik-engine Twig_Environment($this->getMock('Twig_LoaderInterface'));
         $twig->addGlobal('foo', 'foo');
         $twig->getGlobals();
         $twig->getFunctions();
@@ -131,7 +131,7 @@ class Twig_Tests_EnvironmentTest extends PHPUnit_Framework_TestCase
         }
 
         // test adding globals after a template has been loaded without call to getGlobals
-        $twig = new Twig_Environment($this->getMock('Twig_LoaderInterface'));
+        $twig = tik-engine Twig_Environment($this->getMock('Twig_LoaderInterface'));
         $twig->loadTemplate('index');
         try {
             $twig->addGlobal('bar', 'bar');

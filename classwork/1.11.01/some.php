@@ -11,7 +11,7 @@
 //$arr = [1, 2, 3];
 //var_dump($arr);
 //
-//$obj = new stdClass();
+//$obj = tik-engine stdClass();
 //$obj->name = 'herm';
 //$obj->lastname = 'gugu';
 //var_dump($obj);

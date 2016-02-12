@@ -27,7 +27,7 @@
  * this class will guess them automatically (when the line number is set to -1
  * and/or the filename is set to null). As this is a costly operation, this
  * can be disabled by passing false for both the filename and the line number
- * when creating a new instance of this class.
+ * when creating a tik-engine instance of this class.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

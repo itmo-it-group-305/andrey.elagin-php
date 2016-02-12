@@ -61,7 +61,7 @@ public function getfoo(\$__foo__ = null, \$__bar__ = "Foo"$declaration)
         throw \$e;
     }
 
-    return ('' === \$tmp = ob_get_clean()) ? '' : new Twig_Markup(\$tmp, \$this->env->getCharset());
+    return ('' === \$tmp = ob_get_clean()) ? '' : tik-engine Twig_Markup(\$tmp, \$this->env->getCharset());
 }
 EOF
             ),

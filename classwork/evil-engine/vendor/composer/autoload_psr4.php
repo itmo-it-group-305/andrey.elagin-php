@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '\\Daddyingrave\\new\\' => array($baseDir . '/src'),
+    'Daddyingrave\\EvilEngine\\' => array($baseDir . '/src'),
 );

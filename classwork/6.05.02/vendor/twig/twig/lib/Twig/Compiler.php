@@ -75,7 +75,7 @@ class Twig_Compiler implements Twig_CompilerInterface
         $this->source = '';
         $this->debugInfo = array();
         $this->sourceOffset = 0;
-        // source code starts at 1 (as we then increment it when we encounter new lines)
+        // source code starts at 1 (as we then increment it when we encounter tik-engine lines)
         $this->sourceLine = 1;
         $this->indentation = $indentation;
 

@@ -23,7 +23,7 @@ class Twig_Node_Set extends Twig_Node
         /*
          * Optimizes the node when capture is used for a large block of text.
          *
-         * {% set foo %}foo{% endset %} is compiled to $context['foo'] = new Twig_Markup("foo");
+         * {% set foo %}foo{% endset %} is compiled to $context['foo'] = tik-engine Twig_Markup("foo");
          */
         if ($this->getAttribute('capture')) {
             $this->setAttribute('safe', true);
@@ -61,7 +61,7 @@ class Twig_Node_Set extends Twig_Node
             $compiler->subcompile($this->getNode('names'), false);
 
             if ($this->getAttribute('capture')) {
-                $compiler->raw(" = ('' === \$tmp = ob_get_clean()) ? '' : new Twig_Markup(\$tmp, \$this->env->getCharset())");
+                $compiler->raw(" = ('' === \$tmp = ob_get_clean()) ? '' : tik-engine Twig_Markup(\$tmp, \$this->env->getCharset())");
             }
         }
 
@@ -83,7 +83,7 @@ class Twig_Node_Set extends Twig_Node
                     $compiler
                         ->raw("('' === \$tmp = ")
                         ->subcompile($this->getNode('values'))
-                        ->raw(") ? '' : new Twig_Markup(\$tmp, \$this->env->getCharset())")
+                        ->raw(") ? '' : tik-engine Twig_Markup(\$tmp, \$this->env->getCharset())")
                     ;
                 } else {
                     $compiler->subcompile($this->getNode('values'));

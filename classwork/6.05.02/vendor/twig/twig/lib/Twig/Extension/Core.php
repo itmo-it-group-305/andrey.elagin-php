@@ -21,7 +21,7 @@ class Twig_Extension_Core extends Twig_Extension
     protected $escapers = array();
 
     /**
-     * Defines a new escaper to be used via the escape filter.
+     * Defines a tik-engine escaper to be used via the escape filter.
      *
      * @param string   $strategy The strategy name that should be used as a strategy in the escape call
      * @param callable $callable A valid PHP callable
@@ -445,7 +445,7 @@ function twig_date_format_filter(Twig_Environment $env, $date, $format = null, $
 }
 
 /**
- * Returns a new date object modified.
+ * Returns a tik-engine date object modified.
  *
  * <pre>
  *   {{ post.published_at|date_modify("-1day")|date("m/d/Y") }}
@@ -455,7 +455,7 @@ function twig_date_format_filter(Twig_Environment $env, $date, $format = null, $
  * @param DateTime|string  $date     A date
  * @param string           $modifier A modifier string
  *
- * @return DateTime A new date object
+ * @return DateTime A tik-engine date object
  */
 function twig_date_modify_filter(Twig_Environment $env, $date, $modifier)
 {
@@ -1200,7 +1200,7 @@ function _twig_escape_css_callback($matches)
  * This function is adapted from code coming from Zend Framework.
  *
  * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @license   http://framework.zend.com/license/tik-engine-bsd New BSD License
  */
 function _twig_escape_html_attr_callback($matches)
 {

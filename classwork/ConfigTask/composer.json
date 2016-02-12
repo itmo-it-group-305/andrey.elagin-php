@@ -1,0 +1,15 @@
+{
+    "name": "daddyingrave/7.08.02",
+    "authors": [
+        {
+            "name": "Andrey Elagin",
+            "email": "daddyingrave@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Daddyingrave\\EvilEngine\\": "./src"
+        }
+    },
+    "require": {}
+}
